@@ -6,6 +6,7 @@ Pseudocode:
 
 -Player has a choice between - Rock, paper, scissors and has to use prompt to type in the answer.
     *reads players input
+    *IF VALUE doesn't match any of the options - RETURN 'enter valid option and ask for a prompt again.
     *returns the value
 
 -AI generates a random choice (computerPlay)
