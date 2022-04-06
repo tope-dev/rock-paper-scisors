@@ -1,7 +1,10 @@
-const playButton = document.querySelector("#playButton");
+const playSingleButton = document.querySelector("#playSingleButton");
+const playGameButton = document.querySelector('#playGameButton');
 
 let playerOneScore = 0;
 let computerScore = 0;
+let currentGameCount = 0;
+const setGameCount = 5;
 
 //Generates random selection for computer
 function playComputer() {
@@ -66,4 +69,29 @@ function playVersusComputer() {
   console.log(`Computer Score: ${computerScore}`);
 }
 
-playButton.addEventListener("click", playVersusComputer);
+function playGame() {
+  const setGameCount = prompt('Choose the game length. Best of how many games?', 5);
+  
+  currentGameCount = 0;
+  playerOneScore = 0;
+  computerScore = 0;
+  while (currentGameCount <= setGameCount) {
+    for (let i = currentGameCount; i <= setGameCount; i++) {
+      playVersusComputer();
+      currentGameCount = playerOneScore + computerScore + 1;
+    }
+    console.log(currentGameCount);
+  }
+  if (playerOneScore > computerScore) {
+    console.log('!!!!!!!!!!!!!!!!!!!!!!!!');
+    console.log(`You Win the Game of ${setGameCount}!!!`);
+    console.log('!!!!!!!!!!!!!!!!!!!!!!!!');
+  } else {
+    console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
+    console.log(`You Lost! Computer Wins the Game of ${setGameCount}!!!`);
+    console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
+  }
+}
+
+playSingleButton.addEventListener("click", playVersusComputer);
+playGameButton.addEventListener("click", playGame);
