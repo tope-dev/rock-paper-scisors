@@ -112,8 +112,8 @@ function playVersusComputer() {
     playerOneScore = 0;
     computerScore = 0;
   } else {
-    resultsPlayer.innerText = `Player ${playerOneScore} : `;
-    resultsComputer.innerText = `${computerScore} Computer`;
+    resultsPlayer.innerText = `<Player> ${playerOneScore} : `;
+    resultsComputer.innerText = `${computerScore} <Computer>`;
   }
 }
 
