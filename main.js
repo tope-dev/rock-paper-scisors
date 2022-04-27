@@ -1,5 +1,8 @@
-const resultsTab = document.querySelector('.results');
 const selectionButtons = document.querySelector('.container--buttons__selection');
+const resultsTab = document.querySelector('.results__tab');
+const resultsPlayer = document.querySelector('.results__tab--player');
+const resultsComputer = document.querySelector('.results__tab--computer');
+const announceTab = document.querySelector('.announce');
 
 const rockButton = document.querySelector('#btn--rock');
 const paperButton = document.querySelector('#btn--paper');
@@ -14,6 +17,9 @@ const setGameCount = 5;
 rockButton.addEventListener("click", playRock);
 paperButton.addEventListener("click", playPaper);
 scissorsButton.addEventListener("click", playScissors);
+
+
+
 
 
 
@@ -65,16 +71,21 @@ function playVersusComputer() {
   if (playerSelection === "scissors" && computerSelection === "paper") {
     playerOneScore++;
     console.log(`You Win! ${initialLetterUppercase(playerSelection)} beats ${initialLetterUppercase(computerSelection)}!`);
+    announceTab.innerText = (`You Win! ${initialLetterUppercase(playerSelection)} beats ${initialLetterUppercase(computerSelection)}!`);
   } else if (playerSelection === "rock" && computerSelection === "scissors") {
     playerOneScore++;
     console.log(`You Win! ${initialLetterUppercase(playerSelection)} beats ${initialLetterUppercase(computerSelection)}!`);
+    announceTab.innerText = (`You Win! ${initialLetterUppercase(playerSelection)} beats ${initialLetterUppercase(computerSelection)}!`);
   } else if (playerSelection === "paper" && computerSelection === "rock") {
     playerOneScore++;
     console.log(`You Win! ${initialLetterUppercase(playerSelection)} beats ${initialLetterUppercase(computerSelection)}!`);
+    announceTab.innerText = (`You Win! ${initialLetterUppercase(playerSelection)} beats ${initialLetterUppercase(computerSelection)}!`);
   } else if (playerSelection === computerSelection) {
     console.log("It's a tie! Try again!");
+    announceTab.innerText = ("It's a tie! Try again!");
   } else {
     console.log(`You Lose! ${initialLetterUppercase(computerSelection)} beats ${initialLetterUppercase(playerSelection)}!`);
+    announceTab.innerText = (`You Lose! ${initialLetterUppercase(computerSelection)} beats ${initialLetterUppercase(playerSelection)}!`);
     computerScore++;
   }
 
@@ -84,9 +95,26 @@ function playVersusComputer() {
     return result;
   }
 
+
   //Outputs Score in console
   console.log(`Player1 Score: ${playerOneScore}`);
   console.log(`Computer Score: ${computerScore}`);
+
+  // Outputs Score in HTML
+  if (playerOneScore >= 5) {
+    resultsPlayer.innerText = 'You win!';
+    resultsComputer.innerText = '';
+    playerOneScore = 0;
+    computerScore = 0;
+  } else if (computerScore >= 5) {
+    resultsPlayer.innerText = 'You Lose!';
+    resultsComputer.innerText = '';
+    playerOneScore = 0;
+    computerScore = 0;
+  } else {
+    resultsPlayer.innerText = `Player ${playerOneScore} : `;
+    resultsComputer.innerText = `${computerScore} Computer`;
+  }
 }
 
 // function playGame() {

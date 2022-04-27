@@ -12,10 +12,19 @@ body {
 
 .results {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   color: #fff;
   text-shadow: 5px 5px black;
+  gap: 20px;
+}
+.results__tab {
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
 }
 
 .container--buttons__selection {
@@ -36,6 +45,15 @@ body {
   transform: translateY(-5px);
   color: white;
   background-color: black;
+}
+
+.announce {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(210, 255, 49);
+  text-shadow: 2px 2px black;
+  font-size: 18px;
 }
 
 @media only screen and (max-width: 768px) {
