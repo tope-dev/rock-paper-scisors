@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
 body {
-  background-color: #f32;
+  background-color: darkslategrey;
   display: flex;
   flex-direction: column;
   margin: 0;
@@ -12,4 +14,27 @@ body {
   justify-content: center;
   align-items: center;
   gap: 50px;
+  button {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 35px;
+    border: black solid 5px;
+    border-radius: 40px;
+    padding: 10px 20px;
+    transition: ease-in-out 0.2s;
+    &:hover {
+      transform: translateY(-5px);
+      color: white;
+      background-color: black;
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .container-buttons {
+    gap: 25px;
+    button {
+      font-size: 15px;
+
+    }
+  }
 }
