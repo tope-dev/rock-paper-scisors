@@ -6,15 +6,25 @@ body {
   margin: 0;
   height: 100vh;
   justify-content: center;
+  gap: 50px;
+  font-family: "Permanent Marker", cursive;
 }
 
-.container-buttons {
+.results {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-shadow: 5px 5px black;
+}
+
+.container--buttons__selection {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 50px;
 }
-.container-buttons button {
+.container--buttons__selection button {
   font-family: "Permanent Marker", cursive;
   font-size: 35px;
   border: black solid 5px;
@@ -22,17 +32,25 @@ body {
   padding: 10px 20px;
   transition: ease-in-out 0.2s;
 }
-.container-buttons button:hover {
+.container--buttons__selection button:hover {
   transform: translateY(-5px);
   color: white;
   background-color: black;
 }
 
 @media only screen and (max-width: 768px) {
-  .container-buttons {
+  .container--buttons__mode {
     gap: 25px;
   }
-  .container-buttons button {
+  .container--buttons__mode button {
+    font-size: 15px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .container--buttons__selection {
+    gap: 25px;
+  }
+  .container--buttons__selection button {
     font-size: 15px;
   }
 }/*# sourceMappingURL=style.css.map */

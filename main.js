@@ -1,10 +1,21 @@
-const playSingleButton = document.querySelector("#playSingleButton");
-const playGameButton = document.querySelector('#playGameButton');
+const resultsTab = document.querySelector('.results');
+const selectionButtons = document.querySelector('.container--buttons__selection');
+
+const rockButton = document.querySelector('#btn--rock');
+const paperButton = document.querySelector('#btn--paper');
+const scissorsButton = document.querySelector('#btn--scissors');
 
 let playerOneScore = 0;
 let computerScore = 0;
 let currentGameCount = 0;
+let playerSelection;
 const setGameCount = 5;
+
+rockButton.addEventListener("click", playRock);
+paperButton.addEventListener("click", playPaper);
+scissorsButton.addEventListener("click", playScissors);
+
+
 
 //Generates random selection for computer
 function playComputer() {
@@ -30,14 +41,23 @@ function playPlayer() {
   }
 }
 
+function playRock() {
+  playerSelection = 'rock';
+  playVersusComputer();
+}
+
+function playPaper() {
+  playerSelection = 'paper';
+  playVersusComputer();
+}
+
+function playScissors() {
+  playerSelection = 'scissors';
+  playVersusComputer();
+}
+
 //Compares player selection against computers selection.
 function playVersusComputer() {
-
-  const playerSelection = playPlayer(); //Starts playPlayer Function and stores the value of player's selection
-
-  if (typeof playerSelection != 'string') {   //Checks if the syntax of selection is correct.
-    return console.log('Error! Use correct selection!');
-  }
 
   const computerSelection = playComputer(); //Starts playComputer Function and stores the value of computer's selection
 
@@ -69,29 +89,29 @@ function playVersusComputer() {
   console.log(`Computer Score: ${computerScore}`);
 }
 
-function playGame() {
-  const setGameCount = prompt('Choose the game length. Best of how many games?', 5);
+// function playGame() {
+//   const setGameCount = prompt('Choose the game length. Best of how many games?', 5);
   
-  currentGameCount = 0;
-  playerOneScore = 0;
-  computerScore = 0;
-  while (currentGameCount <= setGameCount) {
-    for (let i = currentGameCount; i <= setGameCount; i++) {
-      playVersusComputer();
-      currentGameCount = playerOneScore + computerScore + 1;
-    }
-    console.log(currentGameCount);
-  }
-  if (playerOneScore > computerScore) {
-    console.log('!!!!!!!!!!!!!!!!!!!!!!!!');
-    console.log(`You Win the Game of ${setGameCount}!!!`);
-    console.log('!!!!!!!!!!!!!!!!!!!!!!!!');
-  } else {
-    console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
-    console.log(`You Lost! Computer Wins the Game of ${setGameCount}!!!`);
-    console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
-  }
-}
+//   currentGameCount = 0;
+//   playerOneScore = 0;
+//   computerScore = 0;
+//   while (currentGameCount <= setGameCount) {
+//     for (let i = currentGameCount; i <= setGameCount; i++) {
+//       playVersusComputer();
+//       currentGameCount = playerOneScore + computerScore + 1;
+//     }
+//     console.log(currentGameCount);
+//   }
+//   if (playerOneScore > computerScore) {
+//     console.log('!!!!!!!!!!!!!!!!!!!!!!!!');
+//     console.log(`You Win the Game of ${setGameCount}!!!`);
+//     console.log('!!!!!!!!!!!!!!!!!!!!!!!!');
+//   } else {
+//     console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
+//     console.log(`You Lost! Computer Wins the Game of ${setGameCount}!!!`);
+//     console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
+//   }
+// }
 
-playSingleButton.addEventListener("click", playVersusComputer);
-playGameButton.addEventListener("click", playGame);
+
+
